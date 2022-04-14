@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net" rel="preconnect" crossorigin>
+        <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+        <title>Wordle - Solver</title>
+    </head>
+
+    <body>
+        <nav class="level mt-2">
+            <div class="level-item has-text-centered mb-5 top-nav-border">
+                <p class="title">Wordle - Solver</p>
+            </div>
+        </nav>
+        <div class="container is-fluid">
+            <div class="columns is-12">
+                <!-- RULES -->
+                <div class="column is-one-third">
+                    <div class="content">
+                        <h2>RULES</h2>
+
+                        <p>Guess the WORDLE in <b>six</b> tries.</p>
+
+                        <p>Each guess must be a valid five-letter word.</p>
+
+                        <hr />
+
+                        <p>
+                            Each guess will be evaluated and the characters will be displayed according to the
+                            follwing rules:
+                        </p>
+
+                        <p>One ore more letters are..</p>
+
+                        <ul>
+                            <li>in the word and in the correct spot.</li>
+                            <li>in the word but in the wrong spot.</li>
+                            <li>not in the word in any spot.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- GUESSES -->
+                <div class="column is-one-third">
+                    <div class="content">
+                        <h3>GUESSES</h3>
+                    </div>
+                    <div class="container board">
+                        {% for row in range(6) %}
+                        <div class="mb-1">
+                            {% for box in range(5) %}
+                            <div id="inputbox-{{ row }}-{{ box }}" class="tile-box"></div>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="field is-grouped">
+                        <p class="control">
+                            <button class="button is-light" onclick="reset();">
+                                RESET
+                            </button>
+                        </p>
+                        <p class="control">
+                            <button class="button is-light" onclick="triggerSolve();">
+                                SOLVE
+                            </button>
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- LOG -->
+                <div class="column is-one-third">
+                    <div class="content">
+                        <h3>LOG</h3>
+                        <div class="log-wrapper">
+                            <pre class="log">
+<div>
+Wordles Solved: <span>0/0</span>
+Percentage Won: <span>0%</span>
+</div>
+                                <div id="log-content"></div>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        {% block javascript %}
+        <script type="text/javascript">
+            {% include "index.js" %}
+        </script>
+        {% endblock %}
+    </body>
+
+
+</html>

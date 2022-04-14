@@ -1,0 +1,53 @@
+.top-nav-border {
+    border-bottom: 2px solid #dfdfdf;
+}
+
+.log-wrapper {
+    height: 500px;
+}
+
+.log {
+    overflow-x: hidden;
+    overflow-y: auto !important;
+    height: 100%;
+}
+
+.board {
+    box-sizing: border-box;
+    width: 350px;
+    height: 420px;
+}
+
+.tile-box {
+    transition: color 0.5s;
+    color: #4a4a4a;
+    border: 2px solid hsl(240, 2%, 23%);
+    height: 62px;
+    width: 62px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 2rem;
+    user-select: none;
+    pointer-events: none;
+    cursor: default;
+}
+
+.correct-char {
+    color: #FFFFFF;
+    background-color: #538d4e;
+}
+
+.correct-char-wrong-position {
+    color: #FFFFFF;
+    background-color: #b49f3b;
+}
+
+.wrong-char {
+    color: #FFFFFF;
+    background-color: #3a3a3c;
+}
