@@ -1,6 +1,6 @@
 # Wordle Solver
 
-Simple wordle solver implemtation based on filtering, with a success rate of ~90%.
+Simple wordle solver implementation based on filtering, with a success rate of ~90%.
 
 - Original [Wordle](https://www.nytimes.com/games/wordle/index.html)
 
